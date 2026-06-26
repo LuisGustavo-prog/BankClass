@@ -17,34 +17,34 @@ from src.schema.checking_account_schema import (
     CheckingAccountDeposit
 )
 
-router = APIRouter(prefix="/checking", tags=["Checking Account"])
+router = APIRouter(prefix='/checking', tags=['Checking Account'])
 
-@router.put("/update")
+@router.put('/update')
 async def update(data: CheckingAccountUpdate, authorization: str = Header(...)):
     await update_controller(data=data, token=authorization)
-    return {"message": "Account updated successfully."}
+    return {'message': 'Account updated successfully.'}
 
-@router.delete("/delete")
+@router.delete('/delete')
 async def delete(data: CheckingAccountDelete, authorization: str = Header(...)):
     await delete_controller(data=data, token=authorization)
-    return {"message": "Account deleted successfully."}
+    return {'message': 'Account deleted successfully.'}
 
-@router.post("/deposit")
+@router.post('/deposit')
 async def deposit(data: CheckingAccountDeposit, authorization: str = Header(...)):
     await deposit_controller(data=data, token=authorization)
-    return {"message": "Deposit completed successfully."}
+    return {'message': 'Deposit completed successfully.'}
 
-@router.put("/withdraw")
+@router.put('/withdraw')
 async def withdraw(data: CheckingAccountWithdraw, authorization: str = Header(...)):
     await withdraw_controller(data=data, token=authorization)
-    return {"message": "Withdraw completed successfully."}
+    return {'message': 'Withdraw completed successfully.'}
 
-@router.post("/credit-payment")
+@router.post('/credit-payment')
 async def credit_payment(data: CheckingAccountCreditPayment, authorization: str = Header(...)):
     await credit_payment_controller(data=data, token=authorization)
-    return {"message": "Credit payment completed successfully."}
+    return {'message': 'Credit payment completed successfully.'}
 
-@router.post("/debit-payment")
+@router.post('/debit-payment')
 async def debit_payment(data: CheckingAccountDebitPayment, authorization: str = Header(...)):
     await debit_payment_controller(data=data, token=authorization)
-    return {"message": "Debit payment completed successfully."}
+    return {'message': 'Debit payment completed successfully.'}

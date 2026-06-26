@@ -26,7 +26,6 @@ async def get_user_bank_account_number_controller(data: GetUser, token: str):
     
     if account_type == 'savings account':
         return await get_user_saving_account(user_id=data.user_id)
-
     
 async def get_all_user_bank_accounts_controller(data: GetUsers, token: str):
     payload = decode_token(token=token)

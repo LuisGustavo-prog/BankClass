@@ -7,8 +7,8 @@ import os
 load_dotenv()
 
 TOKEN_SECRET_KEY = os.getenv('TOKEN_SECRET_KEY')
-ALGORITHM = os.getenv('ALGORITHM ')
-EXPIRE_HOURS = os.getenv('EXPIRE_HOURS')
+ALGORITHM = os.getenv('ALGORITHM')
+EXPIRE_HOURS = int(os.getenv('EXPIRE_HOURS', 24))
 
 def create_access_token(data: dict):
     payload = data.copy()
